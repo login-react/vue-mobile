@@ -119,6 +119,7 @@ export default {
   color: red;
   font-size: 12px;
   margin-left: 12px;
+  margin-bottom: 3px;
 }
 .chat-content-flex {
   flex: 1;
