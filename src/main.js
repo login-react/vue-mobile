@@ -5,8 +5,11 @@ import App from "./App";
 import router from "./router";
 import Vant from "vant";
 import "vant/lib/index.css";
+import io from "socket.io-client";
 
 Vue.use(Vant);
+Vue.prototype.$socket = io("http://localhost:9999");
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

@@ -1,7 +1,7 @@
 <template>
   <div class="bg">
-    <div class="chat" ref="chatbox">
-      <div class="chatFix">
+    <div class="chat">
+      <div class="chatFix" ref="chatbox">
         <div class="chat-content" v-for="(item) in lists" :key="item.id">
           <div class="img">
             <img v-if="item.type !== 'tm'" src="../../../static/img/12345.png" alt="">
@@ -9,7 +9,7 @@
           </div>
           <div>
             <div class="time">{{item.time}}</div>
-            <div class="chat-content-flex">{{item.title}}</div>
+            <div :class="[item.type === 'tm' ? 'chat-content-flexRight' :'chat-content-flex']">{{item.title}}</div>
           </div>
         </div>
       </div>
@@ -36,14 +36,8 @@ export default {
   },
   created() {
     this.getList();
-  },
-  mounted() {
-    // console.log(this);
-    // let chatbox = this.$refs.chatbox;
-    // chatbox.scrollTop = chatbox.scrollHeight - chatbox.clientHeight + 100;
-    // console.log(" chatbox.scrollHeight", chatbox.scrollHeight);
-    // console.log(" chatbox.scrollTop", chatbox.scrollTop);
-    // console.log(" chatbox.clientHeight", chatbox.clientHeight);
+    // 专门处理socket的值
+    this.initSocket();
   },
   methods: {
     getList() {
@@ -53,6 +47,7 @@ export default {
         .then((response) => {
           this.loading = false;
           this.lists = response.data || [];
+          this.storeData = response.data;
         })
         .catch((err) => {
           console.log("err", err);
@@ -68,12 +63,28 @@ export default {
         })
         .then((response) => {
           this.loading = false;
+          this.$socket.emit("chatsEmit", {
+            title: this.sms,
+            time: "",
+            ang: "",
+          });
+          console.log("this.lists send", this.lists);
+          this.lists.unshift({ title: this.sms || "", time: "", ang: "" });
           this.sms = "";
           Toast.success("发送成功");
           this.$nextTick(() => {
-            this.getList();
+            // this.getList();
           });
         });
+    },
+    initSocket() {
+      console.log("===>>>");
+      this.loading = true;
+      this.$socket.on("reveives", function (val) {
+        console.log("vasfs", val);
+        console.log("this.lists", this.lists);
+        this.lists.unshift({ tilte: val.title });
+      });
     },
   },
 };
@@ -124,6 +135,17 @@ export default {
 .chat-content-flex {
   flex: 1;
   background-color: #fefffe;
+  border-radius: 8px;
+  padding: 0 10px;
+  line-height: 30px;
+  font-size: 12px;
+  word-wrap: break-word !important;
+  word-break: break-all;
+  margin-left: 10px;
+}
+.chat-content-flexRight {
+  flex: 1;
+  background-color: #95ec69;
   border-radius: 8px;
   padding: 0 10px;
   line-height: 30px;
