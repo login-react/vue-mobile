@@ -25,6 +25,14 @@ export default {
   },
   mounted() {
     this.$refs.modalChat.show = true;
+    window.localStorage.setItem(
+      "setKey",
+      JSON.stringify({
+        name: "ying",
+        img:
+          "https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/ying.jpeg",
+      })
+    );
     this.headerRecord();
   },
   methods: {

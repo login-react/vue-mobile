@@ -12,7 +12,15 @@ export default {
   data() {
     return {
       title: "",
+      make: "",
     };
+  },
+  created() {
+    try {
+      let name = JSON.parse(window.localStorage.getItem("setKey")).name || "";
+      this.make = name;
+      console.log("name", name);
+    } catch (error) {}
   },
   methods: {
     handleFlower() {
@@ -41,3 +49,6 @@ img {
   margin-top: 10px;
 }
 </style>>
+
+// https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/tm.png
+// https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/ying.jpeg

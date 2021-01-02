@@ -16,7 +16,8 @@
     </div>
     <div class="pos_chats">
       <van-search class="seachStyle" v-model="sms" autofocus placeholder="输入内容后发送按钮显示" />
-      <div v-if="sms !== ''" class="send" @click="handleSend">发送</div>
+      <div v-if="sms !== '' && type === 'ying'" class="send" @click="handleSend">发送</div>
+      <div v-if="sms !== '' && type === 'tm'" class="send" @click="handleSend">发送</div>
     </div>
     <div class="loadStyle">
       <van-loading v-if="loading" color="#1989fa" size="24px">加载中...</van-loading>
@@ -32,12 +33,20 @@ export default {
       sms: "",
       lists: [],
       loading: false,
+      type: "",
     };
   },
   created() {
     this.getList();
     // 专门处理socket的值
     this.initSocket();
+
+    try {
+      let name = JSON.parse(window.localStorage.getItem("setKey")).name || "";
+      console.log("name", name);
+      this.type = name;
+      console.log("this.type", this.type);
+    } catch (error) {}
   },
   methods: {
     getList() {
@@ -60,6 +69,7 @@ export default {
           title: this.sms || "",
           time: "",
           ang: "",
+          type: this.type,
         })
         .then((response) => {
           this.loading = false;
@@ -67,9 +77,14 @@ export default {
             title: this.sms,
             time: "",
             ang: "",
+            type: this.type,
           });
-          console.log("this.lists send", this.lists);
-          this.lists.unshift({ title: this.sms || "", time: "", ang: "" });
+          this.lists.unshift({
+            title: this.sms || "",
+            time: "",
+            ang: "",
+            type: this.type === "tm" ? "tm" : "",
+          });
           this.sms = "";
           Toast.success("发送成功");
           this.$nextTick(() => {
@@ -77,13 +92,15 @@ export default {
           });
         });
     },
+    /**
+     * socket 回复
+     */
     initSocket() {
-      console.log("===>>>");
-      this.loading = true;
-      this.$socket.on("reveives", function (val) {
-        console.log("vasfs", val);
-        console.log("this.lists", this.lists);
-        this.lists.unshift({ tilte: val.title });
+      this.$socket.on("reveives", (val) => {
+        this.lists.unshift({
+          title: val.title,
+          type: val.type === "tm" ? "tm" : "",
+        });
       });
     },
   },
