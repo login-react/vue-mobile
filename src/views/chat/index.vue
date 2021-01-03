@@ -86,7 +86,6 @@ export default {
             type: this.type === "tm" ? "tm" : "",
           });
           this.sms = "";
-          Toast.success("发送成功");
           this.$nextTick(() => {
             // this.getList();
           });
