@@ -40,13 +40,13 @@ export default {
       this.$router.push({ name: "flower" });
     },
     headerRecord() {
-      // axios
-      //   .post("http://119.45.228.169:5000/doLogin", {
-      //     title: this.sms || "",
-      //     time: "",
-      //     ang: "mobile",
-      //   })
-      //   .then((response) => {});
+      axios
+        .post("http://119.45.228.169:5000/doLogin", {
+          title: this.sms || "",
+          time: "",
+          ang: "mobile",
+        })
+        .then((response) => {});
     },
   },
 };
