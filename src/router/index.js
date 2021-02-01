@@ -33,6 +33,11 @@ export default new Router({
       path: "/chats",
       name: "chats",
       component: () => import("@/views/chat/index.vue")
+    },
+    {
+      path: '/two21',
+      name: "two21",
+      component: () => import("../views/tw21")
     }
   ]
 });

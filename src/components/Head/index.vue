@@ -30,6 +30,9 @@ export default {
         if (routeName === "miss") {
           this.title = "2021";
         }
+        if(routeName === 'two21'){
+           this.title = "202121";
+        }
       },
       immediate: true,
     },
