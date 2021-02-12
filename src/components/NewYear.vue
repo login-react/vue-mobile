@@ -1,33 +1,9 @@
 <template>
   <div class="content">
-    <section class="container">
-      <input type="checkbox" id="card" />
-      <label class="card" for="card">
-        <div class="ear-shadow"></div>
-        <div class="ear-shadow ear-shadow_right"></div>
-        <div class="eyes"></div>
-        <div class="mouth"></div>
-        <div class="nose"></div>
-        <div class="mustache"></div>
-        <div class="mustache mustache_right"></div>
-        <div class="paw"></div>
-        <div class="paw paw_right"></div>
-        <div class="plate">Welcome to 2021</div>
-        <div class="card card_back"></div>
-      </label>
-    </section>
-    <section class="flakes">
-      <span class="flake">😷</span>
-      <span class="flake">💊</span>
-      <span class="flake">🏥</span>
-      <span class="flake">🧼</span>
-      <span class="flake">🚑</span>
-      <span class="flake">🦠</span>
-      <span class="flake">🤒</span>
-      <span class="flake">💸</span>
-      <span class="flake">🧪</span>
-      <span class="flake">👩‍⚕️</span>
-    </section>
+    <iframe
+      src="https://www.jsdaima.com/js/demo/4121.html"
+      style="width: 100%; height: 600px; margin-top: 10px;z-index:-1;"
+    ></iframe>
     <div class="button">
       <van-button type="default" @click="handleFlowerStep">上一步</van-button>
       <van-button type="default" @click="handleFlower">下一步</van-button>
@@ -61,9 +37,9 @@ img {
 }
 .button {
   position: absolute;
-    bottom: 3px;
-    left: 50%;
-    transform: translate(-50%);
+  bottom: 3px;
+  left: 50%;
+  transform: translate(-50%);
 }
 .container {
   z-index: 1;
@@ -76,7 +52,7 @@ img {
   align-items: center;
   justify-content: center;
   -webkit-animation: jump 1s ease-in-out alternate infinite;
-          animation: jump 1s ease-in-out alternate infinite;
+  animation: jump 1s ease-in-out alternate infinite;
 }
 @-webkit-keyframes jump {
   from {
@@ -105,14 +81,17 @@ img {
   height: 70vmin;
   border-radius: 25vmin 25vmin 3vmin 3vmin;
   border-bottom: 0.5vmin solid #777;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 0.4vmin 0.4vmin, rgba(0, 0, 0, 0.25) 0 0.8vmin 0.8vmin, rgba(0, 0, 0, 0.2) 0 1.6vmin 1.6vmin;
-  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAGFBMVEUAAAD////MzMwAAACZZjP/zJlVVVW7u7vA84tnAAAAAXRSTlMAQObYZgAAAKBJREFUKM990DEKAjEQheHAnuARsn0G7eOOYC/ZAywyB7Cx9/6NmTS+RDBdfr6ZYkJQLYHfIq84lAvwjBxuwAomqm+AyZabQeGwYiCLAEAqFLKXB830YkzEw0wSk008OOG9ZjoOGTDsTWaITM5NQJkcAA9d6+4hfkndbSZ2zMQDdN6SfgLN3PsZKIgIstH5pb1a+f7+H8Op/hdLJ4GJj3wAtEwihNsbCogAAAAASUVORK5CYII="), default;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0.4vmin 0.4vmin,
+    rgba(0, 0, 0, 0.25) 0 0.8vmin 0.8vmin, rgba(0, 0, 0, 0.2) 0 1.6vmin 1.6vmin;
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAGFBMVEUAAAD////MzMwAAACZZjP/zJlVVVW7u7vA84tnAAAAAXRSTlMAQObYZgAAAKBJREFUKM990DEKAjEQheHAnuARsn0G7eOOYC/ZAywyB7Cx9/6NmTS+RDBdfr6ZYkJQLYHfIq84lAvwjBxuwAomqm+AyZabQeGwYiCLAEAqFLKXB830YkzEw0wSk008OOG9ZjoOGTDsTWaITM5NQJkcAA9d6+4hfkndbSZ2zMQDdN6SfgLN3PsZKIgIstH5pb1a+f7+H8Op/hdLJ4GJj3wAtEwihNsbCogAAAAASUVORK5CYII="),
+    default;
   transform: rotateX(0deg) rotateY(20deg) scale(1);
   transform-style: preserve-3d;
   transition: 1.5s ease-in-out;
   transition-property: transform;
 }
-.card::after, .card::before {
+.card::after,
+.card::before {
   content: "";
   position: absolute;
   top: -2vmin;
@@ -141,8 +120,8 @@ img {
   position: absolute;
   opacity: 0;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   left: 100%;
 }
 #card:checked + .card {
@@ -175,7 +154,8 @@ img {
   z-index: 1;
   position: absolute;
 }
-.eyes::after, .eyes::before {
+.eyes::after,
+.eyes::before {
   content: "";
   position: absolute;
   top: 15vmin;
@@ -211,7 +191,8 @@ img {
   z-index: 1;
   position: absolute;
 }
-.mouth::after, .mouth::before {
+.mouth::after,
+.mouth::before {
   content: "";
   position: absolute;
   top: 21.7vmin;
@@ -239,7 +220,8 @@ img {
   border-top: 0.35vmin solid #111;
   transform: rotate(-10deg);
 }
-.mustache::after, .mustache::before {
+.mustache::after,
+.mustache::before {
   content: "";
   position: absolute;
   top: 1vmin;
@@ -300,7 +282,9 @@ img {
   display: flex;
   align-items: center;
   transform: rotate(7deg);
-  box-shadow: 0 0.9vmin 0 #6d4c36, rgba(0, 0, 0, 0.15) 0 1.1vmin 0.2vmin, rgba(0, 0, 0, 0.15) 0 1.3vmin 0.4vmin, rgba(0, 0, 0, 0.15) 0 1.7vmin 0.8vmin, rgba(0, 0, 0, 0.15) 0 2.5vmin 1.6vmin, rgba(0, 0, 0, 0.15) 0 4.1vmin 3.2vmin;
+  box-shadow: 0 0.9vmin 0 #6d4c36, rgba(0, 0, 0, 0.15) 0 1.1vmin 0.2vmin,
+    rgba(0, 0, 0, 0.15) 0 1.3vmin 0.4vmin, rgba(0, 0, 0, 0.15) 0 1.7vmin 0.8vmin,
+    rgba(0, 0, 0, 0.15) 0 2.5vmin 1.6vmin, rgba(0, 0, 0, 0.15) 0 4.1vmin 3.2vmin;
 }
 
 /*\
@@ -310,26 +294,27 @@ img {
   position: relative;
   color: rgba(255, 255, 255, 0.5);
   font-size: 3vmin;
-  font-family: ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .flake {
   position: fixed;
   top: -10%;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   -webkit-animation-name: flakes-fall, flakes-shake-rotate;
-          animation-name: flakes-fall, flakes-shake-rotate;
+  animation-name: flakes-fall, flakes-shake-rotate;
   -webkit-animation-duration: 10s, 3s;
-          animation-duration: 10s, 3s;
+  animation-duration: 10s, 3s;
   -webkit-animation-timing-function: linear, ease-in-out;
-          animation-timing-function: linear, ease-in-out;
+  animation-timing-function: linear, ease-in-out;
   -webkit-animation-iteration-count: infinite, infinite;
-          animation-iteration-count: infinite, infinite;
+  animation-iteration-count: infinite, infinite;
   -webkit-animation-play-state: running, running;
-          animation-play-state: running, running;
+  animation-play-state: running, running;
 }
 @-webkit-keyframes flakes-fall {
   0% {
@@ -372,51 +357,51 @@ img {
 .flake:nth-of-type(0) {
   left: 1%;
   -webkit-animation-delay: 0s, 0s;
-          animation-delay: 0s, 0s;
+  animation-delay: 0s, 0s;
 }
 .flake:nth-of-type(1) {
   left: 10%;
   -webkit-animation-delay: 1s, 1s;
-          animation-delay: 1s, 1s;
+  animation-delay: 1s, 1s;
 }
 .flake:nth-of-type(2) {
   left: 20%;
   -webkit-animation-delay: 6s, 0.5s;
-          animation-delay: 6s, 0.5s;
+  animation-delay: 6s, 0.5s;
 }
 .flake:nth-of-type(3) {
   left: 30%;
   -webkit-animation-delay: 4s, 2s;
-          animation-delay: 4s, 2s;
+  animation-delay: 4s, 2s;
 }
 .flake:nth-of-type(4) {
   left: 40%;
   -webkit-animation-delay: 2s, 2s;
-          animation-delay: 2s, 2s;
+  animation-delay: 2s, 2s;
 }
 .flake:nth-of-type(5) {
   left: 50%;
   -webkit-animation-delay: 8s, 3s;
-          animation-delay: 8s, 3s;
+  animation-delay: 8s, 3s;
 }
 .flake:nth-of-type(6) {
   left: 60%;
   -webkit-animation-delay: 6s, 2s;
-          animation-delay: 6s, 2s;
+  animation-delay: 6s, 2s;
 }
 .flake:nth-of-type(7) {
   left: 70%;
   -webkit-animation-delay: 2.5s, 1s;
-          animation-delay: 2.5s, 1s;
+  animation-delay: 2.5s, 1s;
 }
 .flake:nth-of-type(8) {
   left: 80%;
   -webkit-animation-delay: 1s, 0s;
-          animation-delay: 1s, 0s;
+  animation-delay: 1s, 0s;
 }
 .flake:nth-of-type(9) {
   left: 90%;
   -webkit-animation-delay: 3s, 1.5s;
-          animation-delay: 3s, 1.5s;
+  animation-delay: 3s, 1.5s;
 }
 </style>

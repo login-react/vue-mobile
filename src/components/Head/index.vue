@@ -1,14 +1,41 @@
 <template>
   <div class="box">
-    <div class="content">{{title}}</div>
+    <div class="content">{{ title }}</div>
+    <!-- <ModalChat ref="modalChat"></ModalChat> -->
+    <audio
+      style="
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        opacity: 0;
+      "
+      :autoplay="true"
+      :controls="true"
+      :loop="true"
+      preload
+      webkit-playsinline="true"
+      playsinline="true"
+      ref="audio"
+    >
+      <source src="../../assets/audio/xx.mp3" />
+    </audio>
   </div>
 </template>
 <script>
+import ModalChat from "../../components/Modal";
+
 export default {
+  components: {
+    ModalChat,
+  },
   data() {
     return {
       title: "",
     };
+  },
+  mounted() {
+    // this.$refs.modalChat.show = true;
+    this.$refs.audio.play();
   },
   watch: {
     $route: {
@@ -16,22 +43,23 @@ export default {
         console.log("👓", val.name);
         const routeName = val.name;
         if (routeName === "chats") {
-          this.title = "欢迎盈盈";
+          this.title = "照顾好自己";
+          this.$refs.audio.play();
         }
         if (routeName === "header") {
-          this.title = "开启浪漫之旅";
+          this.title = "照顾好自己";
         }
         if (routeName === "flower") {
-          this.title = "鲜花送盈";
+          this.title = "照顾好自己";
         }
         if (routeName === "newYear") {
-          this.title = "新年盈盈诸事顺心";
+          this.title = "照顾好自己";
         }
         if (routeName === "miss") {
-          this.title = "2021";
+          this.title = "情人节快乐";
         }
-        if(routeName === 'two21'){
-           this.title = "202121";
+        if (routeName === "two21") {
+          this.title = "202121";
         }
       },
       immediate: true,

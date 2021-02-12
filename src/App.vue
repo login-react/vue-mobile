@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    
     <router-view />
   </div>
 </template>
@@ -12,6 +13,10 @@ export default {
     Header,
   },
   name: "App",
+  updated() {
+    console.log('2')
+    
+  },
 };
 </script>
 
