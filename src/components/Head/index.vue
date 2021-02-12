@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="content">{{ title }}</div>
-    <!-- <ModalChat ref="modalChat"></ModalChat> -->
+    <ModalChat ref="modalChat"></ModalChat>
     <audio
       style="
         position: absolute;
@@ -34,7 +34,7 @@ export default {
     };
   },
   mounted() {
-    // this.$refs.modalChat.show = true;
+    this.$refs.modalChat.show = true;
     this.$refs.audio.play();
   },
   watch: {
