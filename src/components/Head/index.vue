@@ -43,17 +43,17 @@ export default {
         console.log("👓", val.name);
         const routeName = val.name;
         if (routeName === "chats") {
-          this.title = "照顾好自己";
+          this.title = "盈盈";
           this.$refs.audio.play();
         }
         if (routeName === "header") {
-          this.title = "照顾好自己";
+          this.title = "博宇";
         }
         if (routeName === "flower") {
-          this.title = "照顾好自己";
+          this.title = "灏妤";
         }
         if (routeName === "newYear") {
-          this.title = "照顾好自己";
+          this.title = "...";
         }
         if (routeName === "miss") {
           this.title = "情人节快乐";
