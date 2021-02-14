@@ -14,7 +14,11 @@
           <div>
             <div class="time">{{ item.time }}</div>
             <div v-if="item.title.includes('jpeg')">
-              <img :src="item.title"  style="margin-left:10px;width: 200px;height:200px;background-size: 100% 100%;"/>
+              <img
+                :src="item.title"
+                style="margin-left: 10px; width: 200px; height: 200px"
+                @click="handleOpenImg(item.title)"
+              />
             </div>
             <div
               v-else
@@ -57,7 +61,7 @@
 </template>
 <script>
 import axios from "axios";
-import { Toast } from "vant";
+import { Toast, Dialog, ImagePreview } from "vant";
 export default {
   data() {
     return {
@@ -92,6 +96,9 @@ export default {
         .catch((err) => {
           console.log("err", err);
         });
+    },
+    handleOpenImg(item) {
+      ImagePreview([item]);
     },
     handleSend() {
       this.loading = true;
