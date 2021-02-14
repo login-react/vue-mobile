@@ -2,25 +2,56 @@
   <div class="bg">
     <div class="chat">
       <div class="chatFix" ref="chatbox">
-        <div class="chat-content" v-for="(item) in lists" :key="item.id">
+        <div class="chat-content" v-for="item in lists" :key="item.id">
           <div class="img">
-            <img v-if="item.type !== 'tm'" src="../../../static/img/12345.png" alt="">
-            <img v-else src="../../../static/img/tm.png" alt="">
+            <img
+              v-if="item.type !== 'tm'"
+              src="../../../static/img/12345.png"
+              alt=""
+            />
+            <img v-else src="../../../static/img/tm.png" alt="" />
           </div>
           <div>
-            <div class="time">{{item.time}}</div>
-            <div :class="[item.type === 'tm' ? 'chat-content-flexRight' :'chat-content-flex']">{{item.title}}</div>
+            <div class="time">{{ item.time }}</div>
+            <div v-if="item.title.includes('jpg')">
+              <img :src="item.title"  style="margin-left:10px;"/>
+            </div>
+            <div
+              v-else
+              :class="[
+                item.type === 'tm'
+                  ? 'chat-content-flexRight'
+                  : 'chat-content-flex',
+              ]"
+            >
+              {{ item.title }}
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="pos_chats">
-      <van-search class="seachStyle" v-model="sms" autofocus placeholder="输入内容后发送按钮显示" />
-      <div v-if="sms !== '' && type === 'ying'" class="send" @click="handleSend">发送</div>
-      <div v-if="sms !== '' && type === 'tm'" class="send" @click="handleSend">发送</div>
+      <van-search
+        class="seachStyle"
+        v-model="sms"
+        autofocus
+        placeholder="输入内容后发送按钮显示"
+      />
+      <div
+        v-if="sms !== '' && type === 'ying'"
+        class="send"
+        @click="handleSend"
+      >
+        发送
+      </div>
+      <div v-if="sms !== '' && type === 'tm'" class="send" @click="handleSend">
+        发送
+      </div>
     </div>
     <div class="loadStyle">
-      <van-loading v-if="loading" color="#1989fa" size="24px">加载中...</van-loading>
+      <van-loading v-if="loading" color="#1989fa" size="24px"
+        >加载中...</van-loading
+      >
     </div>
   </div>
 </template>

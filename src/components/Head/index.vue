@@ -47,13 +47,13 @@ export default {
           this.$refs.audio.play();
         }
         if (routeName === "header") {
-          this.title = "博宇";
+          this.title = "盈盈";
         }
         if (routeName === "flower") {
           this.title = "灏妤";
         }
         if (routeName === "newYear") {
-          this.title = "...";
+          this.title = "博宇";
         }
         if (routeName === "miss") {
           this.title = "情人节快乐";

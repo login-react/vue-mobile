@@ -22,7 +22,6 @@ export default {
     try {
       let name = JSON.parse(window.localStorage.getItem("setKey")).name || "";
       this.make = name;
-      console.log("name", name);
     } catch (error) {}
   },
   methods: {
