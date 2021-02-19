@@ -2,36 +2,36 @@
   <div class="bg">
     <div class="chat">
       <div class="chatFix" ref="chatbox">
-        <div class="chat-content" v-for="item in lists" :key="item.id">
-          <div class="img">
-            <img
-              v-if="item.type !== 'tm'"
-              src="../../../static/img/12345.png"
-              alt=""
-            />
-            <img v-else src="../../../static/img/tm.png" alt="" />
-          </div>
-          <div>
-            <div class="time">{{ item.time }}</div>
-            <div v-if="item.title.includes('jpeg')">
+          <div class="chat-content" v-for="item in lists" :key="item.id">
+            <div class="img">
               <img
-                :src="item.title"
-                style="margin-left: 10px; width: 200px; height: 200px"
-                @click="handleOpenImg(item.title)"
+                v-if="item.type !== 'tm'"
+                src="../../../static/img/12345.png"
+                alt=""
               />
+              <img v-else src="../../../static/img/tm.png" alt="" />
             </div>
-            <div
-              v-else
-              :class="[
-                item.type === 'tm'
-                  ? 'chat-content-flexRight'
-                  : 'chat-content-flex',
-              ]"
-            >
-              {{ item.title }}
+            <div>
+              <div class="time">{{ item.time }}</div>
+              <div v-if="item.title.includes('jpeg')">
+                <img
+                  :src="item.title"
+                  style="margin-left: 10px; width: 200px; height: 200px"
+                  @click="handleOpenImg(item.title)"
+                />
+              </div>
+              <div
+                v-else
+                :class="[
+                  item.type === 'tm'
+                    ? 'chat-content-flexRight'
+                    : 'chat-content-flex',
+                ]"
+              >
+                {{ item.title }}
+              </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
     <div class="pos_chats">
@@ -62,6 +62,7 @@
 <script>
 import axios from "axios";
 import { Toast, Dialog, ImagePreview } from "vant";
+import moment from "moment";
 export default {
   data() {
     return {
@@ -113,13 +114,13 @@ export default {
           this.loading = false;
           this.$socket.emit("chatsEmit", {
             title: this.sms,
-            time: "",
+            time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
             ang: "",
             type: this.type,
           });
           this.lists.unshift({
             title: this.sms || "",
-            time: "",
+            time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
             ang: "",
             type: this.type === "tm" ? "tm" : "",
           });
