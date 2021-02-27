@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <iframe
-      src="https://www.jsdaima.com/js/demo/4119.html"
+      src="https://www.jsdaima.com/js/demo/4024.html"
       style="width: 100%; height: 600px; margin-top: 10px;z-index:-1;"
     ></iframe>
     <div class="button">
