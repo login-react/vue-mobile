@@ -17,7 +17,7 @@
       playsinline="true"
       ref="audio"
     >
-      <source src="../../assets/audio/xx.mp3" />
+      <source src="../../assets/audio/love.mp3" />
     </audio>
   </div>
 </template>
@@ -56,7 +56,7 @@ export default {
           this.title = "博宇";
         }
         if (routeName === "miss") {
-          this.title = "情人节快乐";
+          this.title = "生日快乐";
         }
         if (routeName === "two21") {
           this.title = "202121";

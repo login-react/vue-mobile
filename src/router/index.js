@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Header from "@/components/Header.vue";
+import First from "@/components/First.vue";
 import Flower from "@/components/Flower.vue";
 import newYear from "@/components/newYear.vue";
 import MissYour from "@/components/MissYour";
@@ -12,6 +13,11 @@ export default new Router({
     {
       path: "/",
       name: "header",
+      component: First
+    },
+    {
+      path: "/first",
+      name: "first",
       component: Header
     },
     {
