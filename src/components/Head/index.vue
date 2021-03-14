@@ -56,7 +56,10 @@ export default {
           this.title = "博宇";
         }
         if (routeName === "miss") {
-          this.title = "生日快乐";
+          this.title = "小寿星生日快乐";
+        }
+        if (routeName === " happy") {
+          this.title = "生日快乐盈盈";
         }
         if (routeName === "two21") {
           this.title = "202121";

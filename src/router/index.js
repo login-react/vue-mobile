@@ -41,6 +41,11 @@ export default new Router({
       component: () => import("@/views/chat/index.vue")
     },
     {
+      path: "/happy",
+      name: "happy",
+      component: () => import("@/views/happy/index.vue")
+    },
+    {
       path: '/two21',
       name: "two21",
       component: () => import("../views/tw21")
