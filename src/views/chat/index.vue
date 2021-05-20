@@ -2,36 +2,36 @@
   <div class="bg">
     <div class="chat">
       <div class="chatFix" ref="chatbox">
-          <div class="chat-content" v-for="item in lists" :key="item.id">
-            <div class="img">
+        <div class="chat-content" v-for="item in lists" :key="item.id">
+          <div class="img">
+            <img
+              v-if="item.type !== 'tm'"
+              src="../../../static/img/12345.png"
+              alt=""
+            />
+            <img v-else src="../../../static/img/tm.png" alt="" />
+          </div>
+          <div>
+            <div class="time">{{ item.time }}</div>
+            <div v-if="item.title.includes('jpeg')">
               <img
-                v-if="item.type !== 'tm'"
-                src="../../../static/img/12345.png"
-                alt=""
+                :src="item.title"
+                style="margin-left: 10px; width: 200px; height: 200px"
+                @click="handleOpenImg(item.title)"
               />
-              <img v-else src="../../../static/img/tm.png" alt="" />
             </div>
-            <div>
-              <div class="time">{{ item.time }}</div>
-              <div v-if="item.title.includes('jpeg')">
-                <img
-                  :src="item.title"
-                  style="margin-left: 10px; width: 200px; height: 200px"
-                  @click="handleOpenImg(item.title)"
-                />
-              </div>
-              <div
-                v-else
-                :class="[
-                  item.type === 'tm'
-                    ? 'chat-content-flexRight'
-                    : 'chat-content-flex',
-                ]"
-              >
-                {{ item.title }}
-              </div>
+            <div
+              v-else
+              :class="[
+                item.type === 'tm'
+                  ? 'chat-content-flexRight'
+                  : 'chat-content-flex',
+              ]"
+            >
+              {{ item.title }}
             </div>
           </div>
+        </div>
       </div>
     </div>
     <div class="pos_chats">
@@ -53,9 +53,10 @@
       </div>
     </div>
     <div class="loadStyle">
-      <van-loading v-if="loading" color="#1989fa" size="24px"
+      <!-- <van-loading v-if="loading" color="#1989fa" size="24px"
         >加载中...</van-loading
-      >
+      > -->
+      <Emoji v-if="loading" />
     </div>
   </div>
 </template>
@@ -63,7 +64,11 @@
 import axios from "axios";
 import { Toast, Dialog, ImagePreview } from "vant";
 import moment from "moment";
+import Emoji from "./Emoji";
 export default {
+  components: {
+    Emoji,
+  },
   data() {
     return {
       sms: "",
@@ -104,31 +109,31 @@ export default {
     handleSend() {
       this.loading = true;
       axios
-        .post("http://119.45.228.169:5000/doLogin", {
-          title: this.sms || "",
-          time: "",
+      .post("http://119.45.228.169:5000/doLogin", {
+        title: this.sms || "",
+        time: "",
+        ang: "",
+        type: this.type,
+      })
+      .then((response) => {
+        this.loading = false;
+        this.$socket.emit("chatsEmit", {
+          title: this.sms,
+          time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
           ang: "",
           type: this.type,
-        })
-        .then((response) => {
-          this.loading = false;
-          this.$socket.emit("chatsEmit", {
-            title: this.sms,
-            time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
-            ang: "",
-            type: this.type,
-          });
-          this.lists.unshift({
-            title: this.sms || "",
-            time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
-            ang: "",
-            type: this.type === "tm" ? "tm" : "",
-          });
-          this.sms = "";
-          this.$nextTick(() => {
-            // this.getList();
-          });
         });
+        this.lists.unshift({
+          title: this.sms || "",
+          time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
+          ang: "",
+          type: this.type === "tm" ? "tm" : "",
+        });
+        this.sms = "";
+        this.$nextTick(() => {
+          // this.getList();
+        });
+      });
     },
     /**
      * socket 回复
