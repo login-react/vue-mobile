@@ -1,13 +1,13 @@
 <template>
   <div class="content">
     <iframe
-      src="https://www.jsdaima.com/js/demo/4164.html"
+      src="https://www.jsdaima.com/js/demo/3506.html"
       style="width: 100%; height: 600px; margin-top: 10px; z-index: -1"
     ></iframe>
-    <iframe
+    <!-- <iframe
       src="https://www.jsdaima.com/js/demo/3711.html"
       style="width: 100%; height: 600px; margin-top: 10px; z-index: -1"
-    ></iframe>
+    ></iframe> -->
     <div class="button">
       <van-button type="default" @click="handleFlower">上一步</van-button>
       <van-button type="default" @click="handleFlowerStep">下一步</van-button>
