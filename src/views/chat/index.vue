@@ -53,10 +53,9 @@
       </div>
     </div>
     <div class="loadStyle">
-      <!-- <van-loading v-if="loading" color="#1989fa" size="24px"
-        >加载中...</van-loading
-      > -->
-      <Emoji v-if="loading" />
+      <van-loading v-if="loading" color="#1989fa" size="24px"
+        >数据正加急速加载中...</van-loading
+      >
     </div>
   </div>
 </template>
@@ -64,11 +63,7 @@
 import axios from "axios";
 import { Toast, Dialog, ImagePreview } from "vant";
 import moment from "moment";
-import Emoji from "./Emoji";
 export default {
-  components: {
-    Emoji,
-  },
   data() {
     return {
       sms: "",
