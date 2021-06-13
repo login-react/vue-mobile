@@ -26,11 +26,11 @@ import ModalChat from "../../components/Modal";
 
 export default {
   components: {
-    ModalChat,
+    ModalChat
   },
   data() {
     return {
-      title: "",
+      title: ""
     };
   },
   mounted() {
@@ -39,7 +39,7 @@ export default {
   },
   watch: {
     $route: {
-      handler: function (val, oldValue) {
+      handler: function(val, oldValue) {
         console.log("👓", val.name);
         const routeName = val.name;
         if (routeName === "chats") {
@@ -65,9 +65,9 @@ export default {
           this.title = "202121";
         }
       },
-      immediate: true,
-    },
-  },
+      immediate: true
+    }
+  }
   // filters: {
   //   showTitle(name) {
   //     console.log("===ddd>>>>>", name);
@@ -111,5 +111,5 @@ export default {
   100% {
     background-position: 0% 50%;
   }
-}
-</style>>
+}</style
+>>

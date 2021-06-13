@@ -2,17 +2,19 @@
  * @Description: 
  * @Author: mac_zhou
  * @Date: 2021-03-04 22:31:59
- * @LastEditTime: 2021-05-20 10:22:47
+ * @LastEditTime: 2021-06-13 15:43:35
  * @LastEditors: mac_zhou
 -->
 <template>
-  <div class="content">
-    <iframe
-      src="https://www.jsdaima.com/js/demo/4156.html"
-      style="width: 100%; height: 600px; z-index: -1"
-    ></iframe>
-    <div class="button">
-      <van-button type="default" @click="handleEnter">下一步</van-button>
+  <div ref="snow">
+    <div class="content">
+      <iframe
+        src="https://www.jsdaima.com/js/demo/4247.html"
+        style="width: 100%; height: 600px; z-index: -1"
+      ></iframe>
+      <div class="button">
+        <van-button type="default" @click="handleEnter">下一步</van-button>
+      </div>
     </div>
   </div>
 </template>
@@ -25,19 +27,20 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
+      msg: "Welcome to Your Vue.js App"
     };
   },
+  created() {},
   mounted() {
     window.localStorage.setItem(
       "setKey",
       JSON.stringify({
         name: "ying",
         img:
-          "https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/ying.jpeg",
+          "https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/ying.jpeg"
       })
     );
-    this.headerRecord();
+    // this.headerRecord();
   },
   methods: {
     handleEnter() {
@@ -48,11 +51,11 @@ export default {
         .post("http://119.45.228.169:5000/doLogin", {
           title: this.sms || "",
           time: "",
-          ang: "mobile",
+          ang: "mobile"
         })
-        .then((response) => {});
-    },
-  },
+        .then(response => {});
+    }
+  }
 };
 </script>
 

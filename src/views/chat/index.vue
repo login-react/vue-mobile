@@ -25,7 +25,7 @@
               :class="[
                 item.type === 'tm'
                   ? 'chat-content-flexRight'
-                  : 'chat-content-flex',
+                  : 'chat-content-flex'
               ]"
             >
               {{ item.title }}
@@ -54,7 +54,7 @@
     </div>
     <div class="loadStyle">
       <van-loading v-if="loading" color="#1989fa" size="24px"
-        >数据正加急速加载中...</van-loading
+        >数据正急速加载中...</van-loading
       >
     </div>
   </div>
@@ -69,7 +69,7 @@ export default {
       sms: "",
       lists: [],
       loading: false,
-      type: "",
+      type: ""
     };
   },
   created() {
@@ -89,12 +89,12 @@ export default {
       this.loading = true;
       axios
         .get("http://119.45.228.169:5000/list")
-        .then((response) => {
+        .then(response => {
           this.loading = false;
           this.lists = response.data || [];
           this.storeData = response.data;
         })
-        .catch((err) => {
+        .catch(err => {
           console.log("err", err);
         });
     },
@@ -104,44 +104,44 @@ export default {
     handleSend() {
       this.loading = true;
       axios
-      .post("http://119.45.228.169:5000/doLogin", {
-        title: this.sms || "",
-        time: "",
-        ang: "",
-        type: this.type,
-      })
-      .then((response) => {
-        this.loading = false;
-        this.$socket.emit("chatsEmit", {
-          title: this.sms,
-          time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
-          ang: "",
-          type: this.type,
-        });
-        this.lists.unshift({
+        .post("http://119.45.228.169:5000/doLogin", {
           title: this.sms || "",
-          time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
+          time: "",
           ang: "",
-          type: this.type === "tm" ? "tm" : "",
+          type: this.type
+        })
+        .then(response => {
+          this.loading = false;
+          this.$socket.emit("chatsEmit", {
+            title: this.sms,
+            time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
+            ang: "",
+            type: this.type
+          });
+          this.lists.unshift({
+            title: this.sms || "",
+            time: moment(new Date()).format("yyyy-MM-DD HH:mm:ss"),
+            ang: "",
+            type: this.type === "tm" ? "tm" : ""
+          });
+          this.sms = "";
+          this.$nextTick(() => {
+            // this.getList();
+          });
         });
-        this.sms = "";
-        this.$nextTick(() => {
-          // this.getList();
-        });
-      });
     },
     /**
      * socket 回复
      */
     initSocket() {
-      this.$socket.on("reveives", (val) => {
+      this.$socket.on("reveives", val => {
         this.lists.unshift({
           title: val.title,
-          type: val.type === "tm" ? "tm" : "",
+          type: val.type === "tm" ? "tm" : ""
         });
       });
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
@@ -242,7 +242,7 @@ export default {
   background-color: red;
 }
 </style>
-<style >
+<style>
 .van-field__left-icon {
   display: none;
 }
