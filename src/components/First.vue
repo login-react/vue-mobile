@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: mac_zhou
  * @Date: 2021-03-04 22:31:59
- * @LastEditTime: 2021-06-13 15:43:35
+ * @LastEditTime: 2021-06-13 16:25:16
  * @LastEditors: mac_zhou
 -->
 <template>
@@ -40,7 +40,7 @@ export default {
           "https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/ying.jpeg"
       })
     );
-    // this.headerRecord();
+    this.headerRecord();
   },
   methods: {
     handleEnter() {

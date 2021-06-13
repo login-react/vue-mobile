@@ -1,11 +1,22 @@
 <template>
-  <div>
+  <div class="bg">
     <transition name="van-slide-left">
-      <van-dialog v-model="show" title="标题" show-cancel-button @confirm="handleConfirm" @cancel="handleCancel">
+      <van-dialog
+        v-model="show"
+        title="标题"
+        show-cancel-button
+        @confirm="handleConfirm"
+        @cancel="handleCancel"
+      >
         <div class="title">是否跳转聊天项,请选择微信头像</div>
         <div class="imgStyle">
-          <div class="img-con" v-for="(item,index) in avator" :key="index">
-            <img :class="[clickObj === index ? 'initStyle' :'clickStyle',]" :src="item.img" alt="" @click="handleClickImg(item,index)">
+          <div class="img-con" v-for="(item, index) in avator" :key="index">
+            <img
+              :class="[clickObj === index ? 'initStyle' : 'clickStyle']"
+              :src="item.img"
+              alt=""
+              @click="handleClickImg(item, index)"
+            />
           </div>
         </div>
       </van-dialog>
@@ -23,14 +34,14 @@ export default {
         {
           img:
             "https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/ying.jpeg",
-          name: "ying",
+          name: "ying"
         },
         {
           img:
             "https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/tm.png",
-          name: "tm",
-        },
-      ],
+          name: "tm"
+        }
+      ]
     };
   },
   created() {},
@@ -60,12 +71,15 @@ export default {
         );
         this.clickObj = 1;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style scope>
+.bg /deep/ .van-dialog {
+  background-image: url("../../assets/fav.jpg");
+}
 .imgStyle {
   display: flex;
   justify-content: center;
