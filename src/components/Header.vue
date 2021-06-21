@@ -1,7 +1,15 @@
+<!--
+ * @Description: 
+ * @Version: 2.0
+ * @Author: mac_zhou
+ * @Date: 2021-06-02 21:12:23
+ * @LastEditors: mac_zhou
+ * @LastEditTime: 2021-06-18 07:11:25
+-->
 <template>
   <div class="content">
     <iframe
-      src="https://www.jsdaima.com/js/demo/4235.html"
+      src="https://www.jsdaima.com/js/demo/4219.html"
       style="width: 100%; height: 600px; z-index: -1"
     ></iframe>
     <div class="button">
@@ -18,7 +26,7 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App",
+      msg: "Welcome to Your Vue.js App"
     };
   },
   mounted() {
@@ -27,7 +35,7 @@ export default {
       JSON.stringify({
         name: "ying",
         img:
-          "https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/ying.jpeg",
+          "https://zhoutaimin-img-1302077583.cos.ap-nanjing.myqcloud.com/ying.jpeg"
       })
     );
     this.headerRecord();
@@ -37,15 +45,15 @@ export default {
       this.$router.push({ name: "flower" });
     },
     headerRecord() {
-      // axios
-      //   .post("http://119.45.228.169:5000/doLogin", {
-      //     title: this.sms || "",
-      //     time: "",
-      //     ang: "mobile",
-      //   })
-      //   .then((response) => {});
-    },
-  },
+      axios
+        .post("http://119.45.228.169:5000/doLogin", {
+          title: this.sms || "",
+          time: "",
+          ang: "mobile"
+        })
+        .then(response => {});
+    }
+  }
 };
 </script>
 

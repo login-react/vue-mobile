@@ -1,15 +1,15 @@
 <template>
   <div class="content">
     <iframe
-      src="https://www.jsdaima.com/js/demo/4040.html"
+      src="https://www.jsdaima.com/js/demo/3839.html"
       style="width: 100%; height: 600px; margin-top: 10px;z-index:-1;"
     ></iframe>
     <div class="button">
       <van-button type="default" @click="handleFlowerStep">上一步</van-button>
       <van-button type="default" @click="handleFlower">下一步</van-button>
     </div>
-  </div>
-</template>>
+  </div> </template
+>>
 <script>
 export default {
   data() {
@@ -21,8 +21,8 @@ export default {
     },
     handleFlowerStep() {
       this.$router.push({ name: "flower" });
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
