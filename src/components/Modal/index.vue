@@ -78,8 +78,8 @@ export default {
 
 <style scope>
 .bg /deep/ .van-dialog {
-  background-image: url("../../assets/yy.jpg");
-  background-size: 100% 100%;
+  /* background-image: url("../../assets/yy.jpg");
+  background-size: 100% 100%; */
 }
 .imgStyle {
   display: flex;

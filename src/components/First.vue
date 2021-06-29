@@ -2,14 +2,14 @@
  * @Description: 
  * @Author: mac_zhou
  * @Date: 2021-03-04 22:31:59
- * @LastEditTime: 2021-06-18 06:55:01
+ * @LastEditTime: 2021-06-29 19:40:20
  * @LastEditors: mac_zhou
 -->
 <template>
   <div ref="snow">
     <div class="content">
       <iframe
-        src="https://www.jsdaima.com/js/demo/4253.html"
+        src="https://www.jsdaima.com/js/demo/4266.html"
         style="width: 100%; height: 600px; z-index: -1"
       ></iframe>
       <div class="button">

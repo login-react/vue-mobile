@@ -4,12 +4,12 @@
  * @Author: mac_zhou
  * @Date: 2021-06-02 21:12:23
  * @LastEditors: mac_zhou
- * @LastEditTime: 2021-06-18 07:11:25
+ * @LastEditTime: 2021-06-29 19:41:16
 -->
 <template>
   <div class="content">
     <iframe
-      src="https://www.jsdaima.com/js/demo/4219.html"
+      src="https://www.jsdaima.com/js/demo/4267.html"
       style="width: 100%; height: 600px; z-index: -1"
     ></iframe>
     <div class="button">
