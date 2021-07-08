@@ -3,13 +3,13 @@
  * @Version: 2.0
  * @Author: mac_zhou
  * @Date: 2021-06-02 21:12:23
- * @LastEditors: mac_zhou
- * @LastEditTime: 2021-06-29 19:41:16
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-07-08 21:24:51
 -->
 <template>
   <div class="content">
     <iframe
-      src="https://www.jsdaima.com/js/demo/4267.html"
+      src="https://www.jsdaima.com/js/demo/4054.html"
       style="width: 100%; height: 600px; z-index: -1"
     ></iframe>
     <div class="button">
