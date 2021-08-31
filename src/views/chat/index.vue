@@ -104,10 +104,10 @@ export default {
     handleSend() {
       this.loading = true;
       axios
-        .post("http://119.45.228.169:5000/doLogin", {
+        .post("http://39.103.214.235:5000/doLogin", {
           title: this.sms || "",
           time: "",
-          ang: "",
+          ang: "new-server",
           type: this.type
         })
         .then(response => {

@@ -2,18 +2,19 @@
  * @Description: 
  * @Author: mac_zhou
  * @Date: 2021-03-04 22:31:59
- * @LastEditTime: 2021-07-08 21:21:45
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-07-18 10:46:51
+ * @LastEditors: mac_zhou
 -->
 <template>
   <div ref="snow">
     <div class="content">
-      <iframe
-        src="https://www.jsdaima.com/js/demo/4271.html"
-        style="width: 100%; height: 600px; z-index: -1"
-      ></iframe>
+      <div v-for="(item,index) in datas" :key="index">
+         <iframe :src="item.name"
+              style="width: 100%; height: 600px; z-index: -1"></iframe>
+      </div>
       <div class="button">
-        <van-button type="default" @click="handleEnter">下一步</van-button>
+        <van-button type="default"
+                    @click="handleEnter">往下 or 下一页</van-button>
       </div>
     </div>
   </div>
@@ -21,17 +22,22 @@
 
 <script>
 import axios from "axios";
+import {dataSource} from '../Data/index'
+console.log('dataSource :', dataSource)
 // const socket = require("socket.io-client")("http://localhost:9999");
 // console.log("socket", socket.emit("testInfo"));
 export default {
   name: "HelloWorld",
-  data() {
+  data () {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      datas:[]
     };
   },
-  created() {},
-  mounted() {
+  created () {
+    this.datas = dataSource
+   },
+  mounted () {
     window.localStorage.setItem(
       "setKey",
       JSON.stringify({
@@ -43,17 +49,17 @@ export default {
     this.headerRecord();
   },
   methods: {
-    handleEnter() {
+    handleEnter () {
       this.$router.push({ name: "first" });
     },
-    headerRecord() {
+    headerRecord () {
       axios
-        .post("http://119.45.228.169:5000/doLogin", {
+        .post("http://39.103.214.235:5000/doLogin", {
           title: this.sms || "",
           time: "",
-          ang: "mobile"
+          ang: "mobile-new"
         })
-        .then(response => {});
+        .then(response => { });
     }
   }
 };
@@ -71,9 +77,9 @@ img {
   flex-direction: column;
 }
 .button {
-  position: absolute;
-  bottom: 3px;
-  left: 50%;
-  transform: translate(-50%);
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
 }
 </style>

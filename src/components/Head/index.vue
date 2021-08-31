@@ -50,10 +50,10 @@ export default {
           this.title = "盈盈";
         }
         if (routeName === "flower") {
-          this.title = "灏妤";
+          this.title = "==";
         }
         if (routeName === "newYear") {
-          this.title = "博宇";
+          this.title = "==";
         }
         if (routeName === "miss") {
           this.title = "小寿星生日快乐";

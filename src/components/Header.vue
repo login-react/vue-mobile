@@ -3,17 +3,16 @@
  * @Version: 2.0
  * @Author: mac_zhou
  * @Date: 2021-06-02 21:12:23
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-07-08 21:24:51
+ * @LastEditors: mac_zhou
+ * @LastEditTime: 2021-07-18 10:47:34
 -->
 <template>
   <div class="content">
-    <iframe
-      src="https://www.jsdaima.com/js/demo/4054.html"
-      style="width: 100%; height: 600px; z-index: -1"
-    ></iframe>
+    <iframe src="https://www.jsdaima.com/js/demo/3742.html"
+            style="width: 100%; height: 600px; z-index: -1"></iframe>
     <div class="button">
-      <van-button type="default" @click="handleEnter">下一步</van-button>
+      <van-button type="default"
+                  @click="handleEnter">下一步</van-button>
     </div>
   </div>
 </template>
@@ -24,12 +23,12 @@ import axios from "axios";
 // console.log("socket", socket.emit("testInfo"));
 export default {
   name: "HelloWorld",
-  data() {
+  data () {
     return {
       msg: "Welcome to Your Vue.js App"
     };
   },
-  mounted() {
+  mounted () {
     window.localStorage.setItem(
       "setKey",
       JSON.stringify({
@@ -41,17 +40,17 @@ export default {
     this.headerRecord();
   },
   methods: {
-    handleEnter() {
+    handleEnter () {
       this.$router.push({ name: "flower" });
     },
-    headerRecord() {
+    headerRecord () {
       axios
-        .post("http://119.45.228.169:5000/doLogin", {
+        .post("http://39.103.214.235:5000/doLogin", {
           title: this.sms || "",
           time: "",
-          ang: "mobile"
+          ang: "mobile-new"
         })
-        .then(response => {});
+        .then(response => { });
     }
   }
 };
