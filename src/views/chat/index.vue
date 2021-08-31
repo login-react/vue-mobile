@@ -88,7 +88,7 @@ export default {
     getList() {
       this.loading = true;
       axios
-        .get("http://119.45.228.169:5000/list")
+        .get("http://39.103.214.235:5000/list")
         .then(response => {
           this.loading = false;
           this.lists = response.data || [];
