@@ -1,12 +1,15 @@
 export const dataSource = [
+    // {
+    //     name: "https://www.jsdaima.com/js/demo/3573.html"
+    // },
+    // {
+    //     name: 'https://www.jsdaima.com/js/demo/3989.html'
+    // },
+    // {
+    //     name: 'https://www.jsdaima.com/js/demo/4337.html'
+    // },
     {
-        name: "https://www.jsdaima.com/js/demo/3573.html"
-    },
-    {
-        name: 'https://www.jsdaima.com/js/demo/3989.html'
-    },
-    {
-        name: 'https://www.jsdaima.com/js/demo/4337.html'
+        name: 'https://www.jsdaima.com/js/demo/3296.html'
     },
     {
         name: 'https://www.jsdaima.com/js/demo/4024.html'
@@ -47,9 +50,7 @@ export const dataSource = [
     // {
     //     name: 'https://www.jsdaima.com/js/demo/3354.html'
     // },
-    {
-        name: 'https://www.jsdaima.com/js/demo/3296.html'
-    },
+
     // {
     //     name: 'https://www.jsdaima.com/js/demo/3129.html'
     // },

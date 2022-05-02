@@ -8,7 +8,7 @@ import "vant/lib/index.css";
 import io from "socket.io-client";
 
 Vue.use(Vant);
-Vue.prototype.$socket = io("http://119.45.228.169:9999");
+Vue.prototype.$socket = io("http://39.103.214.235:9999");
 
 Vue.config.productionTip = false;
 

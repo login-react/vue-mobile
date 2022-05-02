@@ -47,7 +47,7 @@ export default {
           this.$refs.audio.play();
         }
         if (routeName === "header") {
-          this.title = "盈盈";
+          this.title = "这朵花送给你";
         }
         if (routeName === "flower") {
           this.title = "==";
@@ -56,10 +56,10 @@ export default {
           this.title = "==";
         }
         if (routeName === "miss") {
-          this.title = "小寿星生日快乐";
+          this.title = "盈盈";
         }
         if (routeName === " happy") {
-          this.title = "生日快乐盈盈";
+          this.title = "盈盈";
         }
         if (routeName === "two21") {
           this.title = "202121";
