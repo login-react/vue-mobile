@@ -8,13 +8,21 @@
 <template>
   <div ref="snow">
     <div class="content">
-      <div v-for="(item,index) in datas" :key="index">
-         <iframe :src="item.name"
-              style="width: 100%; height: 600px; z-index: -1"></iframe>
+      <div style="width:100%;margin-top:10px;">
+        <video width="100%" height="240" controls>
+          <source src="../video/mack.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div v-for="(item, index) in datas" :key="index">
+        <iframe
+          :src="item.name"
+          style="width: 100%; height: 600px; z-index: -1"
+        ></iframe>
       </div>
       <div class="button">
-        <van-button type="default"
-                    @click="handleEnter">往下 or 下一页</van-button>
+        <van-button type="default" @click="handleEnter"
+          >往下 or 下一页</van-button
+        >
       </div>
     </div>
   </div>
@@ -22,22 +30,22 @@
 
 <script>
 import axios from "axios";
-import {dataSource} from '../Data/index'
-console.log('dataSource :', dataSource)
+import { dataSource } from "../Data/index";
+console.log("dataSource :", dataSource);
 // const socket = require("socket.io-client")("http://localhost:9999");
 // console.log("socket", socket.emit("testInfo"));
 export default {
   name: "HelloWorld",
-  data () {
+  data() {
     return {
       msg: "Welcome to Your Vue.js App",
-      datas:[]
+      datas: []
     };
   },
-  created () {
-    this.datas = dataSource
-   },
-  mounted () {
+  created() {
+    this.datas = dataSource;
+  },
+  mounted() {
     window.localStorage.setItem(
       "setKey",
       JSON.stringify({
@@ -49,17 +57,17 @@ export default {
     this.headerRecord();
   },
   methods: {
-    handleEnter () {
+    handleEnter() {
       this.$router.push({ name: "first" });
     },
-    headerRecord () {
+    headerRecord() {
       axios
         .post("http://39.103.214.235:5000/doLogin", {
           title: this.sms || "",
           time: "",
           ang: "mobile-new"
         })
-        .then(response => { });
+        .then(response => {});
     }
   }
 };
@@ -77,9 +85,9 @@ img {
   flex-direction: column;
 }
 .button {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translate(-50%);
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
 }
 </style>
